@@ -48,6 +48,15 @@ alphabet.push('J');
 alphabet.push('X');
 alphabet.push('Z');
 
-console.log(alphabet.length)
+const gameCells = document.querySelectorAll('.game-cell');
+
+document.querySelector('#start').addEventListener('click', () => {
+    gameCells.forEach(item => {
+        const i = Math.floor(Math.random() * 109);
+        item.textContent = alphabet[i];
+    });
+})
+
+
 
 
