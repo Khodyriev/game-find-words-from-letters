@@ -55,8 +55,26 @@ document.querySelector('#start').addEventListener('click', () => {
         const i = Math.floor(Math.random() * 109);
         item.textContent = alphabet[i];
     });
+    countdown ();
 })
 
-
+function countdown () {
+    let s = 180;
+    setInterval(() => {        
+        if (s === 0) {
+            document.querySelector('#counter').textContent = 'Time is up! Stop Game!';            
+        } else {            
+            document.querySelector('#counter').textContent = s;
+            s = s - 1;
+        }
+        if (s < 120 && s >= 60) {
+            document.querySelector('#counter').setAttribute('style', 'color: darkgoldenrod')
+        }
+    
+        if (s < 60) {
+            document.querySelector('#counter').setAttribute('style', 'color: red')
+        }
+    }, 1000);    
+}
 
 
