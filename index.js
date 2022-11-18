@@ -58,20 +58,35 @@ document.querySelector('#start').addEventListener('click', () => {
     countdown ();
 })
 
-function countdown () {
+// document.querySelector('#stop').addEventListener('click', () => {
+//     clearInterval(toCount);
+//     document.querySelector('#counter').textContent = '180';
+//     document.querySelector('#counter').removeAttribute('style');
+// })
+
+function countdown () {    
+    
     let s = 180;
-    setInterval(() => {        
+    const toCount = setInterval(() => {
+        if (s === 180) {
+            document.querySelector('#stop').addEventListener('click', () => {
+                clearInterval(toCount);
+                document.querySelector('#counter').textContent = '180';
+                document.querySelector('#counter').removeAttribute('style');
+            })
+        }
         if (s === 0) {
+            document.querySelector('#counter').removeAttribute('style');
             document.querySelector('#counter').textContent = 'Time is up! Stop Game!';            
+            clearInterval(toCount);            
         } else {            
             document.querySelector('#counter').textContent = s;
-            s = s - 1;
+            s = s - 1;            
         }
-        if (s < 120 && s >= 60) {
+        if (s === 119) {
             document.querySelector('#counter').setAttribute('style', 'color: darkgoldenrod')
         }
-    
-        if (s < 60) {
+        if (s === 59) {
             document.querySelector('#counter').setAttribute('style', 'color: red')
         }
     }, 1000);    
