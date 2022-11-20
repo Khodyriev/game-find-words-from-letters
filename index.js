@@ -55,24 +55,22 @@ document.querySelector('#start').addEventListener('click', () => {
         const i = Math.floor(Math.random() * 109);
         item.textContent = alphabet[i];
     });
-    countdown ();
+    document.querySelector('#stop').removeAttribute('disabled');
+    
+    countdown ();    
 })
 
-// document.querySelector('#stop').addEventListener('click', () => {
-//     clearInterval(toCount);
-//     document.querySelector('#counter').textContent = '180';
-//     document.querySelector('#counter').removeAttribute('style');
-// })
-
-function countdown () {    
-    
+function countdown () {
+    document.querySelector('#start').setAttribute('disabled', 'true');
+    document.querySelector('#counter').removeAttribute('style');
     let s = 180;
     const toCount = setInterval(() => {
         if (s === 180) {
             document.querySelector('#stop').addEventListener('click', () => {
                 clearInterval(toCount);
-                document.querySelector('#counter').textContent = '180';
-                document.querySelector('#counter').removeAttribute('style');
+                document.querySelector('#stop').setAttribute('disabled', 'true');
+                document.querySelector('#start').removeAttribute('disabled');
+                document.querySelector('#counter').textContent = '180';                
             })
         }
         if (s === 0) {

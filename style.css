@@ -12,8 +12,16 @@ body {
 }
 
 h1 {
-    margin: 88px 0;
+    margin: 48px 0;
     font-size: 3rem;
+}
+
+h4 {
+    padding: 0 180px 32px 180px;
+    font-weight: 400;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 0;
 }
 
 main {
@@ -87,4 +95,16 @@ button {
 #stop {
     margin-left: 48px;
     background-color: rgb(245, 93, 76);
+}
+
+#stop:disabled  {
+    background-color: gray;
+    opacity: 0.3;
+    cursor: unset;
+}
+
+#start:disabled  {
+    background-color: gray;
+    opacity: 0.3;
+    cursor: unset;
 }
