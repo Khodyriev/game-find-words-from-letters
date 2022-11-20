@@ -56,7 +56,7 @@ document.querySelector('#start').addEventListener('click', () => {
         item.textContent = alphabet[i];
     });
     document.querySelector('#stop').removeAttribute('disabled');
-    
+    document.querySelector('#counter').textContent = '180';
     countdown ();    
 })
 
@@ -70,11 +70,13 @@ function countdown () {
                 clearInterval(toCount);
                 document.querySelector('#stop').setAttribute('disabled', 'true');
                 document.querySelector('#start').removeAttribute('disabled');
-                document.querySelector('#counter').textContent = '180';                
+                document.querySelector('#counter').textContent = '180';
             })
         }
         if (s === 0) {
-            document.querySelector('#counter').removeAttribute('style');
+            // document.querySelector('#counter').removeAttribute('style');
+            document.querySelector('#stop').setAttribute('disabled', 'true');
+            document.querySelector('#start').removeAttribute('disabled');
             document.querySelector('#counter').textContent = 'Time is up! Stop Game!';            
             clearInterval(toCount);            
         } else {            
